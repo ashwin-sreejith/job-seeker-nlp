@@ -1,0 +1,111 @@
+body {
+            padding: 0;
+            margin: 0;/* Adjust this value to match your navbar height */
+        }
+
+        .navbar {
+            padding: 10px 20px;
+            background: #1A2980;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #1A2980, #26D0CE);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #1A2980, #26D0CE); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        }
+
+        .navbar-brand {
+            font-size: 24px; /* Larger font size */
+            color: white; /* White text */
+
+        }
+
+        .navbar-brand:hover {
+            color: whitesmoke;
+        }
+
+        .navbar-nav .nav-link {
+            font-size: 18px; /* Larger font size for nav links */
+            color: white; /* White text */
+            margin-right: 20px; /* Add margin between nav links */
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #aaa; /* Lighter color on hover */
+        }
+
+        .card {
+            margin-bottom: 20px;
+            width: 159%;
+            margin-top: 90px;
+            border-radius: 10px;
+            box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+        }
+
+        .card-body {
+            padding: 30px; /* Adjust the padding within the card body */
+        }
+
+        .col-md-8 {
+            margin: 0;
+        }
+
+        h2 {
+            font-family: courier-new, courier, monospace ;
+            font-size: 4rem;
+            color: darkblue;
+        }
+
+        #company {
+            margin-bottom: 3.75rem;
+            font-size: 2.5rem;
+        }
+
+        #descHeader {
+            margin-bottom: 1.3rem;
+            font-weight: bold;
+            color: firebrick;
+        }
+
+        p {
+            font-size: 1.4rem;
+        }
+
+        .card-title {
+            margin-bottom: 1.75rem;
+        }
+
+         .category-flair {
+  padding: 5px 8px;
+  border-radius: 5px;
+  color: #157520;
+  font-weight: bold;
+  margin-bottom: 10px;
+  background-color: #80d780;
+  max-width: 11%;
+             font-size: x-large;
+}
+
+
+.category-flair.healthcare {
+  color: #157520;
+  background-color: #80d780; /* Example color for the sales category */
+    max-width: 13%;
+}
+
+.category-flair.sales{
+  color: #977524;
+  background-color: #f7ea25;
+  max-width: 7%;
+}
+
+.category-flair.accounting{
+  color: #791818;
+  background-color: #ff81ab;
+  max-width: 14%;
+}
+
+.category-flair.engineering{
+  color: #14417b;
+  background-color: #6ecefd;
+  max-width: 14%;
+}
+
+

@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block title %}
+    JobHunt.au
+{% endblock %}
+
+{% block additional_css %}
+    <link rel="stylesheet" href="/static/css/index.css">
+{% endblock %}
+
+{% block content %}
+    <!-- Cover -->
+  <div class="cover">
+    <div class="cover-head">
+        <h2>JobHunt.au</h2>
+        <h1>Unlock Opportunities,</h1>
+        <h1>Embrace Your Future!</h1>
+        <H3>Your Path to Success Starts Here!</H3>
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addPost">Post Job Ad</button>
+    </div>
+  </div>
+
+  <!-- Modal for adding post -->
+ <div class="modal fade" id="addPost" data-backdrop="static" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Post Job</h5>
+        </div>
+
+        <div class="modal-body">
+            <!-- post-details form -->
+            <form id="classifyForm">
+              <div class="form-group">
+                <label for="jobTitle">Job Title</label>
+                <input type="text" name="title" class="form-control" id="jobTitle" placeholder="Enter job title"
+                       value="{{ title }}" required>
+              </div>
+                <div class="form-group">
+                <label for="jobCompany">Company</label>
+                <input type="text" name="company" class="form-control" id="jobCompany" placeholder="Enter Company name"
+                value="{{ company }}" required>
+              </div>
+              <div class="form-group">
+                <label for="jobDescription">Job Description</label>
+                <textarea class="form-control" name="description" id="jobDescription" rows="5"
+                          placeholder="Enter job description" required>{{ description }}</textarea>
+              </div>
+              <div class="form-group">
+                <button type="button" class="btn btn-info" onclick="classifyJob()">Classify</button>
+              </div>
+              <div class="form-group" style="display:none;" id="jobTypeSection">
+                <label for="jobType">Job Type</label>
+                <input class="form-control" id="jobType" name="category" placeholder="Choose from Accounting, Sales, Engineering or Healthcare"></input>
+              </div>
+            </form>
+        </div>
+
+        <div class="modal-footer">
+          <p id="validationError" style="color: red; display: none;"></p>
+          <button type="button"  class="btn btn-danger" onclick="toggleJobTypeInput()" data-dismiss="modal">Close</button>
+          <button type="button" id="submitButton" class="btn btn-primary" onclick="addJob()">Submit</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Dropdown to select job category -->
+  <div class="job-container">
+    <div class="container-row">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="btn-group">
+                    <button id="drop-button" class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                      Job Categories
+                    </button>
+                    <div class="dropdown-menu">
+                      {% for category in categories %}
+                        <a class="dropdown-item" href="/switch_category/{{ category }}">{{ category }}</a>
+                      {% endfor %}
+                    <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/allJobs">All Categories</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- cards to show jobs -->
+    <div class="container-card">
+      <div class="row">
+        {% for job in job_listings %}
+          <div class="col-md-6">
+            <a href= "/job/{{ job.Category }}/{{ job.Webindex }}">
+                <div class="card">
+                  <div class="card-body ">
+                    <div class="category-flair {{ job.Category|lower }}">{{ job.Category }}</div>
+                        <h4>{{ job.Title }}</h4>
+                          <h5>{{ job.Company }}</h5>
+                            <p>{{ job.Description }}</p>
+                    </div>
+                    <p id="textOverflow">Read more...</p>
+                </div>
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}
+    JobHunt.au
+{% endblock %}
+
+{% block additional_css %}
+    <link rel="stylesheet" href="/static/css/jobDetails.css">
+{% endblock %}
+
+{% block content %}
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="/">Back</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+
+    <!-- Job Details card -->
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="category-flair {{ job.Category|lower }}">{{ job.Category }}</div>
+                        <h2 class="card-title">{{ job.Title }}</h2>
+                        <h4 id="company">{{ job.Company }}</h4>
+                        <h4 id="descHeader">Description</h4>
+                        <p class="card-text">{{ job.Description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

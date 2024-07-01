@@ -1,0 +1,16 @@
+div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Adjust the height to your needs */
+}
+
+h1 {
+    font-size: 4.3rem;
+}
+
+h2 {
+    font-size: 12rem;
+    color: cornflowerblue;
+}
